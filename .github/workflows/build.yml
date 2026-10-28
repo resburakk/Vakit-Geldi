@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: ZIP aç
-        run: unzip -q "$(ls Vakit-*.zip | sort | tail -1)"
+        run: unzip -q "$(ls Vakit-*.zip | sort | tail -1)" && sed -i 's/^import androidx.compose.ui.graphics.StrokeCap$/import androidx.compose.ui.graphics.StrokeCap\nimport androidx.compose.ui.graphics.nativeCanvas/' Vakit/app/src/main/java/com/vakit/app/ui/QiblaScreen.kt
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
